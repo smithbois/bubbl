@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+        android:name=".activities.LoginActivity"
+        android:windowSoftInputMode="adjustResize|stateAlwaysHidden|adjustPan"></activity>
+    <activity
+        android:name=".activities.DashboardActivity"
+        android:windowSoftInputMode="adjustResize|stateAlwaysHidden|adjustPan"></activity>
     </application>
 
 </manifest>

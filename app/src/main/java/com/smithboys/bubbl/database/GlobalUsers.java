@@ -22,6 +22,15 @@ public class GlobalUsers {
         return globalUsers.get(id);
     }
 
+    public static User queryByEmail(String email) {
+        for (User u : globalUsers.values()) {
+            if (u.getEmail().equals(email)) {
+                return u;
+            }
+        }
+        return null;
+    }
+
     public static void addUser(User user) {
         globalUsers.put(user.getId(), user);
         userCount++;
