@@ -1,5 +1,6 @@
 package com.smithboys.bubbl.database;
 
+import com.smithboys.bubbl.R;
 import com.smithboys.bubbl.models.User;
 
 import java.util.HashMap;
@@ -14,8 +15,11 @@ public class GlobalUsers {
     // Dummy data
     public static void initializeUsers() {
         userCount = 0;
-        globalUsers.put(0, new User("georgepburdell@gatech.edu", "George", "Burdell", "Gt1927"));
+        globalUsers.put(0, new User("georgepburdell@gatech.edu", "George", "Burdell", "testing"));
         globalUsers.put(1, new User("jvitko3@gatech.edu", "Joseph", "Vitko", "testing"));
+        globalUsers.get(0).setProfilePic(R.drawable.george);
+        globalUsers.get(1).setProfilePic(R.drawable.joe);
+
     }
 
     public static User queryByID(Integer id) {

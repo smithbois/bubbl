@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import com.smithboys.bubbl.database.GlobalBubbles;
 import com.smithboys.bubbl.database.GlobalUsers;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,15 +17,15 @@ public class User {
     private String lastName;
     private String password;
 
-    private Bitmap profilePic;
+    private int profilePic;
 
     private Boolean isTestVerified; // True if test was verified, false if self-reported
     private Boolean isInfected; // True if user currently has covid-19
     private Boolean isVaccinated; // True if user has received the vaccine
 
-    private Date dateLastTested; // Date of most recent test
-    private Date dateInfected; // Date the user started experiencing covid symptoms
-    private Date dateVaccinated; // Date the user received the vaccine
+    private LocalDate dateLastTested; // Date of most recent test
+    private LocalDate  dateInfected; // Date the user started experiencing covid symptoms
+    private LocalDate  dateVaccinated; // Date the user received the vaccine or recovered
 
     private Integer riskLevel; // risk level of the group, based on exposures, 1 to 5
 
@@ -82,11 +83,11 @@ public class User {
         this.password = password;
     }
 
-    public Bitmap getProfilePic() {
+    public int getProfilePic() {
         return profilePic;
     }
 
-    public void setProfilePic(Bitmap profilePic) {
+    public void setProfilePic(int profilePic) {
         this.profilePic = profilePic;
     }
 
@@ -114,27 +115,27 @@ public class User {
         isVaccinated = vaccinated;
     }
 
-    public Date getDateLastTested() {
+    public LocalDate getDateLastTested() {
         return dateLastTested;
     }
 
-    public void setDateLastTested(Date dateLastTested) {
+    public void setDateLastTested(LocalDate dateLastTested) {
         this.dateLastTested = dateLastTested;
     }
 
-    public Date getDateInfected() {
+    public LocalDate getDateInfected() {
         return dateInfected;
     }
 
-    public void setDateInfected(Date dateInfected) {
+    public void setDateInfected(LocalDate dateInfected) {
         this.dateInfected = dateInfected;
     }
 
-    public Date getDateVaccinated() {
+    public LocalDate getDateVaccinated() {
         return dateVaccinated;
     }
 
-    public void setDateVaccinated(Date dateVaccinated) {
+    public void setDateVaccinated(LocalDate dateVaccinated) {
         this.dateVaccinated = dateVaccinated;
     }
 

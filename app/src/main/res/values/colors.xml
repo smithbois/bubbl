@@ -5,4 +5,23 @@
     <color name="colorAccent">#83D8CC</color>
     <color name="white">#FFFFFF</color>
     <color name="colorPrimaryTransparent">#803095F8</color>
+    <color name="primaryText">#000000</color>
+    <color name="secondaryText">#993C3C43</color>
+    <color name="tertiaryText">#4D3C3C43</color>
+    <color name="whiteText">#5C9DF9</color>
+    <color name="primaryBorder">#213C3C43</color>
+    <color name="secondaryBorder">#4A3C3C43</color>
+    <color name="tertiaryBorder">#000000</color>
+    <color name="primaryBackground">#FFFFFF</color>
+    <color name="secondaryBackground">#EFEFF4</color>
+    <color name="tertiaryBackground">#DBDBDB</color>
+    <color name="uiPink">#EE586B</color>
+    <color name="uiPurple">#A35DD7</color>
+    <color name="uiBlue">#2E7DF7</color>
+    <color name="uiTeal">#008FB2</color>
+    <color name="uiGreen">#469F3D</color>
+    <color name="uiOrange">#F0681E</color>
+    <color name="uiRed">#FF3B30</color>
+    <color name="uiYellow">#F3D250</color>
+    <color name="clear">#00F44336</color>
 </resources>
