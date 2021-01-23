@@ -45,6 +45,10 @@ public class QRActivity extends AppCompatActivity {
                             int day = reader.getInt("day");
                             int month = reader.getInt("month");
                             int year = reader.getInt("year");
+                            String token = reader.getString("token");
+                            if (!token.equals("vOEVroRAwn")) {
+                                throw new Exception();
+                            }
                             String site = reader.getString("site");
 
                             System.out.println(month + "/" + day + "/" + year + " " + site);
@@ -52,8 +56,11 @@ public class QRActivity extends AppCompatActivity {
                             startActivity(new Intent(QRActivity.this, MainActivity.class));
 
                             qrVerified = true;
-                        } catch (JSONException e) {
+                        } catch (JSONException je) {
                             Toast.makeText(QRActivity.this, "Invalid QR Code", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(QRActivity.this, QRActivity.class));
+                        } catch (Exception e) {
+                            Toast.makeText(QRActivity.this, "Invalid Token", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(QRActivity.this, QRActivity.class));
                         }
                     }
