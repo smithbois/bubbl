@@ -10,12 +10,14 @@ public class Bubble {
     private String name; // Display name of the bubble
     private Integer creator; // ID of user that created the bubble (only one that can delete)
     private Set<Integer> users = new HashSet<Integer>(); // List of users (by id) in the bubble
+    private Integer riskLevel; // risk level of the group, based on exposures, 1 to 5
 
     public Bubble(String name, Integer creator) {
         this.id = GlobalBubbles.getBubbleCount();
         this.name = name;
         this.creator = creator;
         this.users.add(this.creator);
+        this.riskLevel = 1;
 
         GlobalBubbles.addBubble(this);
     }
@@ -50,5 +52,13 @@ public class Bubble {
 
     public void removeUser(Integer id) {
         this.users.remove(id);
+    }
+
+    public Integer getRiskLevel() {
+        return riskLevel;
+    }
+
+    public void setRiskLevel(Integer riskLevel) {
+        this.riskLevel = riskLevel;
     }
 }
