@@ -32,7 +32,7 @@
             android:textSize="14sp"
             cardview:layout_constraintBottom_toBottomOf="parent"
             cardview:layout_constraintEnd_toEndOf="parent"
-            cardview:layout_constraintStart_toEndOf="@+id/textView5"
+            cardview:layout_constraintStart_toEndOf="@+id/frequency"
             cardview:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -59,7 +59,7 @@
             cardview:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/frequency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"

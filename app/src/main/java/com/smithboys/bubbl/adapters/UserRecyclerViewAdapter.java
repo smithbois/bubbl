@@ -9,10 +9,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mikhaellopez.circularimageview.CircularImageView;
 import com.smithboys.bubbl.R;
+import com.smithboys.bubbl.database.GlobalBubbles;
 import com.smithboys.bubbl.models.Bubble;
 import com.smithboys.bubbl.models.User;
 
@@ -41,6 +44,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
 
         // Set bubble name
         holder.nameText.setText(user.getFirstName() + " " + user.getLastName());
+        holder.profile.setImageDrawable(ResourcesCompat.getDrawable(mContext.getResources(), user.getProfilePic(), null));
 
         // Set risk icon and progress bar colors
         int riskLevel = user.getRiskLevel();
@@ -67,6 +71,22 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
                 break;
         }
 
+        int frequency = user.getBubbleFrequency(GlobalBubbles.getLastBubbleClicked());
+        switch (frequency) {
+            case 0:
+                holder.freq.setText("Never");
+                break;
+            case 1:
+                holder.freq.setText("Rare");
+                break;
+            case 2:
+                holder.freq.setText("Occa");
+                break;
+            case 3:
+                holder.freq.setText("Freq");
+                break;
+        }
+
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,13 +103,17 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
+        protected CircularImageView profile;
         protected TextView nameText;
         protected TextView riskIcon;
+        protected TextView freq;
 
         public CustomViewHolder(View view) {
             super(view);
             this.nameText = view.findViewById(R.id.user_row_name_text);
             this.riskIcon = view.findViewById(R.id.user_row_risk_icon);
+            this.profile = view.findViewById(R.id.profile_image);
+            this.freq = view.findViewById(R.id.frequency);
             //this.bubbleCapacity = view.findViewById(R.id.user_row_capacity_bar);
         }
     }
