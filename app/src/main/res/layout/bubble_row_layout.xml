@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    cardview:cardCornerRadius="2dp"
+    cardview:cardElevation="3dp"
+    cardview:cardUseCompatPadding="true"
+    cardview:layout_constraintLeft_toLeftOf="parent"
+    cardview:layout_constraintRight_toRightOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/bubble_row_risk_icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/circle_red"
+            android:elevation="10dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:shadowColor="@android:color/white"
+            android:shadowRadius="10.0"
+            android:textColor="@color/primaryBackground"
+            android:textSize="14sp"
+            cardview:layout_constraintBottom_toBottomOf="parent"
+            cardview:layout_constraintStart_toStartOf="parent"
+            cardview:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bubble_row_name_text"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="25dp"
+            android:gravity="center"
+            android:text="Smith 3rd Floor"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            cardview:layout_constraintBottom_toBottomOf="parent"
+            cardview:layout_constraintStart_toEndOf="@+id/bubble_row_risk_icon"
+            cardview:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/bubble_row_capacity_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:max="8"
+            android:progress="5"
+            android:progressTint="@color/uiRed"
+            android:scaleY="2"
+            android:shadowColor="@android:color/white"
+            android:shadowRadius="10.0"
+            cardview:layout_constraintBottom_toBottomOf="parent"
+            cardview:layout_constraintStart_toEndOf="@id/bubble_row_name_text"
+            cardview:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="50dp"
+            android:paddingRight="25dp"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

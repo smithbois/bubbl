@@ -12,15 +12,26 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.smithboys.bubbl.R;
 import com.smithboys.bubbl.activities.BubbleActivity;
+import com.smithboys.bubbl.adapters.OverviewRecyclerAdapter;
+import com.smithboys.bubbl.database.CurrentUser;
 import com.smithboys.bubbl.database.GlobalBubbles;
+import com.smithboys.bubbl.models.Bubble;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class OverviewFragment extends Fragment {
 
-    private TextView helloWorld;
-    private Button bubbleButton;
+    private List<Bubble> bubbleList;
+    private RecyclerView recyclerView;
+    private OverviewRecyclerAdapter adapter;
+
 
     @Nullable
     @Override
@@ -28,19 +39,19 @@ public class OverviewFragment extends Fragment {
         final ViewGroup root = (ViewGroup) inflater.inflate(R.layout.overview_fragment, container, false);
         final Context context = getContext();
 
-        helloWorld = root.findViewById(R.id.hello_world_text);
-        helloWorld.setText("Loaded");
+        recyclerView = root.findViewById(R.id.overview_recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        bubbleButton = root.findViewById(R.id.goto_bubble_button);
+        Set<Integer> bubbleIDs = CurrentUser.currentUser.getBubbles();
+        bubbleList = new ArrayList<>();
+        for (Integer id : bubbleIDs) {
+            bubbleList.add(GlobalBubbles.queryByID(id));
+        }
 
-        Intent intent = new Intent(getActivity(), BubbleActivity.class);
-        bubbleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                GlobalBubbles.setLastBubbleClicked(0);
-                startActivity(intent);
-            }
-        });
+        adapter = new OverviewRecyclerAdapter(context, bubbleList);
+        recyclerView.setAdapter(adapter);
+
+
 
         return root;
     }

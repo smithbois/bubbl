@@ -22,6 +22,7 @@ public class GlobalBubbles {
         GlobalUsers.queryByID(3).joinBubble(0);
         GlobalUsers.queryByID(4).joinBubble(0);
         GlobalUsers.queryByID(5).joinBubble(0);
+        //queryByID(0).setRiskLevel(4);
     }
 
     public static Bubble queryByID(Integer id) {
