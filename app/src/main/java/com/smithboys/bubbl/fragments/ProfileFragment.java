@@ -59,6 +59,7 @@ public class ProfileFragment extends Fragment {
         nameText.setText(CurrentUser.currentUser.getFirstName() + " " + CurrentUser.currentUser.getLastName());
 
         infectedText = root.findViewById(R.id.infected_text);
+        System.out.println("isInfected: " + CurrentUser.currentUser.getInfected());
         if (CurrentUser.currentUser.getInfected()) {
             infectedText.setText("Infected");
         } else {

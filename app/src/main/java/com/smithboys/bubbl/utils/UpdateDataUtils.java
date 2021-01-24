@@ -21,14 +21,19 @@ public class UpdateDataUtils {
             case 0:
                 // Test
                 CurrentUser.currentUser.setDateLastTested(LocalDate.now());
+                System.out.print("Test button selected");
                 break;
             case 1:
                 // Diagnosis
                 CurrentUser.currentUser.setDateInfected(LocalDate.now());
+                CurrentUser.currentUser.setInfected(true);
+                System.out.print("Diagnosis button selected");
                 break;
             case 2:
                 // Vaccine
                 CurrentUser.currentUser.setDateVaccinated(LocalDate.now());
+                CurrentUser.currentUser.setVaccinated(true);
+                System.out.print("Vaccine button selected");
         }
     }
 }
