@@ -12,8 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
+import com.mikhaellopez.circularimageview.CircularImageView;
 import com.smithboys.bubbl.R;
 import com.smithboys.bubbl.database.CurrentUser;
 import com.smithboys.bubbl.database.GlobalBubbles;
@@ -25,7 +27,7 @@ import static java.time.temporal.ChronoUnit.DAYS;
 
 public class ProfileFragment extends Fragment {
 
-    private ImageView profileImage;
+    private CircularImageView profileImage;
     private TextView nameText;
 
     private TextView infectedText;
@@ -51,7 +53,7 @@ public class ProfileFragment extends Fragment {
         final Context context = getContext();
 
         profileImage = root.findViewById(R.id.profile_image);
-        //profileImage.setBackgroundResource(CurrentUser.currentUser.getProfilePic());
+        profileImage.setImageDrawable(ResourcesCompat.getDrawable(getResources(), CurrentUser.currentUser.getProfilePic(), null));
 
         nameText = root.findViewById(R.id.profile_name_text);
         nameText.setText(CurrentUser.currentUser.getFirstName() + " " + CurrentUser.currentUser.getLastName());
