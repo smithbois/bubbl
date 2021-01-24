@@ -39,5 +39,6 @@ public class UpdateDataUtils {
                 CurrentUser.currentUser.setRiskLevel(1);
                 System.out.print("Vaccine button selected");
         }
+        RiskAlgo.updateRisk();
     }
 }

@@ -7,7 +7,9 @@ import com.smithboys.bubbl.database.GlobalUsers;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class User {
@@ -30,6 +32,8 @@ public class User {
     private Integer riskLevel; // risk level of the group, based on exposures, 1 to 5
 
     private Set<Integer> bubbles = new HashSet<Integer>(); // List of bubble ids the user is in
+
+    private Map<Integer, Integer> bubbleFrequencies = new HashMap<>(); // How often the user interacts with each bubble
 
     public User(String email, String firstName, String lastName, String password) {
         this.id = GlobalUsers.getUserCount();
@@ -145,6 +149,7 @@ public class User {
 
     public void joinBubble(Integer id) {
         this.bubbles.add(id);
+        this.bubbleFrequencies.put(id, 2);
         Bubble bubble = GlobalBubbles.queryByID(id);
         bubble.addUser(this.id);
     }
@@ -161,5 +166,12 @@ public class User {
 
     public void setRiskLevel(Integer riskLevel) {
         this.riskLevel = riskLevel;
+    }
+
+    public void setBubbleFrequency(Integer id, Integer frequency) {
+        this.bubbleFrequencies.put(id, frequency);
+    }
+    public Integer getBubbleFrequency(Integer id) {
+        return this.bubbleFrequencies.get(id);
     }
 }

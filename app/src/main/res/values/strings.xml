@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Bubbl</string>
+    <string-array name="frequency_array">
+        <item>Never</item>
+        <item>Rare</item>
+        <item>Occasional</item>
+        <item>Frequent</item>
+    </string-array>
 </resources>

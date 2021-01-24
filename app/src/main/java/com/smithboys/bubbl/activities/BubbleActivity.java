@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -43,6 +46,8 @@ public class BubbleActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private UserRecyclerViewAdapter adapter;
 
+    private Spinner frequencySpinner;
+
     ImageButton addDataButton;
     ImageButton backButton;
 
@@ -78,6 +83,26 @@ public class BubbleActivity extends AppCompatActivity {
 
         adapter = new UserRecyclerViewAdapter(this, userList);
         recyclerView.setAdapter(adapter);
+
+        int frequency = CurrentUser.currentUser.getBubbleFrequency(GlobalBubbles.getLastBubbleClicked());
+        frequencySpinner = findViewById(R.id.bubble_frequency_spinner);
+        ArrayAdapter<CharSequence> spinAdapter = ArrayAdapter.createFromResource(this, R.array.frequency_array, android.R.layout.simple_spinner_item);
+        spinAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        frequencySpinner.setAdapter(spinAdapter);
+        frequencySpinner.setSelection(CurrentUser.currentUser.getBubbleFrequency(GlobalBubbles.getLastBubbleClicked()));
+        frequencySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
+                int freq = pos;
+                CurrentUser.currentUser.setBubbleFrequency(GlobalBubbles.getLastBubbleClicked(), freq);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         adapter.setOnUserClickListener(new OnUserClickListener() {
             @Override
