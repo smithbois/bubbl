@@ -25,6 +25,9 @@
     <activity
         android:name=".activities.DashboardActivity"
         android:windowSoftInputMode="adjustResize|stateAlwaysHidden|adjustPan"></activity>
+        <activity
+            android:name=".activities.BubbleActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden|adjustPan"></activity>
     </application>
 
 </manifest>

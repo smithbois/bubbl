@@ -17,9 +17,19 @@ public class GlobalUsers {
         userCount = 0;
         globalUsers.put(0, new User("georgepburdell@gatech.edu", "George", "Burdell", "testing"));
         globalUsers.put(1, new User("jvitko3@gatech.edu", "Joseph", "Vitko", "testing"));
-        globalUsers.put(2, new User("", "George", "Burdell", ""));
+        globalUsers.put(2, new User("gpeng8@gatech.edu", "Gary", "Peng", "testing"));
+        globalUsers.put(3, new User("jgann8@gatech.edu", "Jeremy", "Gann", "testing"));
+        globalUsers.put(4, new User("nhulston@gatech.edu", "Nick", "Hulston", "testing"));
+        globalUsers.put(5, new User("daniel.lam@gatech.edu", "Dan", "Lam", "testing"));
+        globalUsers.put(6, new User("", "George", "Burdell", ""));
         globalUsers.get(0).setProfilePic(R.drawable.george);
         globalUsers.get(1).setProfilePic(R.drawable.joe);
+        globalUsers.get(2).setProfilePic(R.drawable.gary);
+        globalUsers.get(3).setProfilePic(R.drawable.jeremy);
+        globalUsers.get(4).setProfilePic(R.drawable.nick);
+        globalUsers.get(5).setProfilePic(R.drawable.dan);
+        globalUsers.get(6).setProfilePic(R.drawable.george);
+
 
     }
 

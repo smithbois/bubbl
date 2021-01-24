@@ -1,6 +1,8 @@
 package com.smithboys.bubbl.activities;
 
 import android.app.Dialog;
+import android.graphics.BlendMode;
+import android.graphics.BlendModeColorFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -42,6 +44,7 @@ public class DashboardActivity extends AppCompatActivity {
         dashboardTabs.addTab(dashboardTabs.newTab().setText("My Profile"));
 
         dashboardTabs.getTabAt(0).setIcon(R.drawable.ic_bubble_icon);
+        dashboardTabs.getTabAt(0).getIcon().setTint(getResources().getColor(R.color.colorPrimary, getTheme()));
         dashboardTabs.getTabAt(1).setIcon(CurrentUser.currentUser.getProfilePic());
 
         final DashboardAdapter adapter = new DashboardAdapter(getSupportFragmentManager(), this, dashboardTabs.getTabCount());
@@ -51,10 +54,17 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 dashboardPager.setCurrentItem(tab.getPosition());
+                if(tab.getPosition() == 0) {
+                    tab.getIcon().setTint(getResources().getColor(R.color.colorPrimary, getTheme()));
+                }
+
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
+                if(tab.getPosition() == 0) {
+                    tab.getIcon().setTint(getResources().getColor(R.color.secondaryText, getTheme()));
+                }
 
             }
 
