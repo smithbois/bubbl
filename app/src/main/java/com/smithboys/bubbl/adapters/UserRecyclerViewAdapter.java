@@ -77,13 +77,13 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
                 holder.freq.setText("Never");
                 break;
             case 1:
-                holder.freq.setText("Rare");
+                holder.freq.setText("Rare ");
                 break;
             case 2:
-                holder.freq.setText("Occa");
+                holder.freq.setText("Occas.");
                 break;
             case 3:
-                holder.freq.setText("Freq");
+                holder.freq.setText("Freq.");
                 break;
         }
 

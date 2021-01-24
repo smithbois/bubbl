@@ -69,8 +69,24 @@ public class BubbleActivity extends AppCompatActivity {
         creatorText = findViewById(R.id.BbCreatorText);
         creatorText.setText(creator.getFirstName() + " " + creator.getLastName());
 
-        riskText = findViewById(R.id.BbRiskText);
-        riskText.setText(riskLevel + "");
+        riskText = findViewById(R.id.bubble_risk_icon);
+        switch (riskLevel) {
+            case 1:
+                riskText.setBackgroundResource(R.drawable.circle_blue);
+                break;
+            case 2:
+                riskText.setBackgroundResource(R.drawable.circle_green);
+                break;
+            case 3:
+                riskText.setBackgroundResource(R.drawable.circle_yellow);
+                break;
+            case 4:
+                riskText.setBackgroundResource(R.drawable.circle_orange);
+                break;
+            case 5:
+                riskText.setBackgroundResource(R.drawable.circle_red);
+                break;
+        }
 
         recyclerView = findViewById(R.id.Bb_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
