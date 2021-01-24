@@ -51,7 +51,7 @@ public class ProfileFragment extends Fragment {
         final Context context = getContext();
 
         profileImage = root.findViewById(R.id.profile_image);
-        profileImage.setBackgroundResource(CurrentUser.currentUser.getProfilePic());
+        //profileImage.setBackgroundResource(CurrentUser.currentUser.getProfilePic());
 
         nameText = root.findViewById(R.id.profile_name_text);
         nameText.setText(CurrentUser.currentUser.getFirstName() + " " + CurrentUser.currentUser.getLastName());

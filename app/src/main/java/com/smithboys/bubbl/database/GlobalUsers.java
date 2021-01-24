@@ -17,6 +17,7 @@ public class GlobalUsers {
         userCount = 0;
         globalUsers.put(0, new User("georgepburdell@gatech.edu", "George", "Burdell", "testing"));
         globalUsers.put(1, new User("jvitko3@gatech.edu", "Joseph", "Vitko", "testing"));
+        globalUsers.put(1, new User("", "George", "Burdell", ""));
         globalUsers.get(0).setProfilePic(R.drawable.george);
         globalUsers.get(1).setProfilePic(R.drawable.joe);
 
