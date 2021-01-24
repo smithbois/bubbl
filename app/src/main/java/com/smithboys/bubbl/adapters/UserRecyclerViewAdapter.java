@@ -47,7 +47,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         switch (riskLevel) {
             case 1:
                 holder.riskIcon.setBackgroundResource(R.drawable.circle_blue);
-                DrawableCompat.setTint(holder.bubbleCapacity.getProgressDrawable(), ContextCompat.getColor(mContext, R.color.uiBlue));
+                //DrawableCompat.setTint(holder.bubbleCapacity.getProgressDrawable(), ContextCompat.getColor(mContext, R.color.uiBlue));
                 break;
             case 2:
                 holder.riskIcon.setBackgroundResource(R.drawable.circle_green);
@@ -55,15 +55,15 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
                 break;
             case 3:
                 holder.riskIcon.setBackgroundResource(R.drawable.circle_yellow);
-                DrawableCompat.setTint(holder.bubbleCapacity.getProgressDrawable(), ContextCompat.getColor(mContext, R.color.uiYellow));
+                //DrawableCompat.setTint(holder.bubbleCapacity.getProgressDrawable(), ContextCompat.getColor(mContext, R.color.uiYellow));
                 break;
             case 4:
                 holder.riskIcon.setBackgroundResource(R.drawable.circle_orange);
-                DrawableCompat.setTint(holder.bubbleCapacity.getProgressDrawable(), ContextCompat.getColor(mContext, R.color.uiOrange));
+                //DrawableCompat.setTint(holder.bubbleCapacity.getProgressDrawable(), ContextCompat.getColor(mContext, R.color.uiOrange));
                 break;
             case 5:
                 holder.riskIcon.setBackgroundResource(R.drawable.circle_red);
-                DrawableCompat.setTint(holder.bubbleCapacity.getProgressDrawable(), ContextCompat.getColor(mContext, R.color.uiRed));
+                //DrawableCompat.setTint(holder.bubbleCapacity.getProgressDrawable(), ContextCompat.getColor(mContext, R.color.uiRed));
                 break;
         }
 
@@ -85,7 +85,6 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
     class CustomViewHolder extends RecyclerView.ViewHolder {
         protected TextView nameText;
         protected TextView riskIcon;
-        protected ProgressBar bubbleCapacity;
 
         public CustomViewHolder(View view) {
             super(view);

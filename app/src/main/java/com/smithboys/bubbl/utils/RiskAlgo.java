@@ -43,7 +43,7 @@ public class RiskAlgo {
 
     }
 
-    private static void updateBubbleRisks() {
+    public static void updateBubbleRisks() {
         for(int i = 0; i < GlobalBubbles.getBubbleCount(); i++) {
             Bubble bubble = GlobalBubbles.queryByID(i);
             int userCount = bubble.getUsers().size();
