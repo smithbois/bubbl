@@ -2,6 +2,7 @@ package com.smithboys.bubbl.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
@@ -18,6 +19,7 @@ import com.google.zxing.Result;
 import com.smithboys.bubbl.MainActivity;
 import com.smithboys.bubbl.activities.DashboardActivity;
 import com.smithboys.bubbl.R;
+import com.smithboys.bubbl.utils.UpdateDataUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,6 +41,7 @@ public class QRActivity extends AppCompatActivity {
             @Override
             public void onDecoded(@NonNull final Result result) {
                 runOnUiThread(new Runnable() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void run() {
                         try {
@@ -54,9 +57,9 @@ public class QRActivity extends AppCompatActivity {
 
                             System.out.println(month + "/" + day + "/" + year + " " + site);
                             Toast.makeText(QRActivity.this, "Test Verified", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(QRActivity.this, DashboardActivity.class));
-
                             qrVerified = true;
+                            UpdateDataUtils.updateUserData(true);
+                            startActivity(new Intent(QRActivity.this, DashboardActivity.class));
                         } catch (JSONException je) {
                             Toast.makeText(QRActivity.this, "Invalid QR Code", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(QRActivity.this, QRActivity.class));
