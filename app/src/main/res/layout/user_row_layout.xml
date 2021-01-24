@@ -64,8 +64,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:text="Rare"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textSize="16sp"
             cardview:layout_constraintBottom_toBottomOf="parent"
             cardview:layout_constraintStart_toEndOf="@+id/user_row_name_text"
             cardview:layout_constraintTop_toTopOf="parent" />
