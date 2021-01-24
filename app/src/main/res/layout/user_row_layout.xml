@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="400dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp"
     cardview:cardCornerRadius="2dp"
@@ -20,7 +20,8 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/circle_red"
             android:elevation="10dp"
             android:fontFamily="@font/roboto"
@@ -30,40 +31,44 @@
             android:textColor="@color/primaryBackground"
             android:textSize="14sp"
             cardview:layout_constraintBottom_toBottomOf="parent"
-            cardview:layout_constraintStart_toStartOf="parent"
+            cardview:layout_constraintEnd_toEndOf="parent"
+            cardview:layout_constraintStart_toEndOf="@+id/textView5"
             cardview:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/user_row_name_text"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="25dp"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:gravity="center"
             android:text="Smith 3rd Floor"
             android:textAlignment="center"
             android:textSize="18dp"
             cardview:layout_constraintBottom_toBottomOf="parent"
-            cardview:layout_constraintStart_toEndOf="@+id/user_row_risk_icon"
+            cardview:layout_constraintStart_toEndOf="@+id/profile_image"
             cardview:layout_constraintTop_toTopOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/user_row_capacity_bar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:elevation="10dp"
-            android:max="8"
-            android:progress="5"
-            android:progressTint="@color/uiRed"
-            android:scaleY="2"
-            android:shadowColor="@android:color/white"
-            android:shadowRadius="10.0"
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/profile_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/george"
             cardview:layout_constraintBottom_toBottomOf="parent"
-            cardview:layout_constraintStart_toEndOf="@id/user_row_name_text"
-            cardview:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="50dp"
-            android:paddingRight="25dp"/>
+            cardview:layout_constraintStart_toStartOf="parent"
+            cardview:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="Rare"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            cardview:layout_constraintBottom_toBottomOf="parent"
+            cardview:layout_constraintStart_toEndOf="@+id/user_row_name_text"
+            cardview:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

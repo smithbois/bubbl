@@ -50,7 +50,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
                 break;
             case 2:
                 holder.riskIcon.setBackgroundResource(R.drawable.circle_green);
-                DrawableCompat.setTint(holder.bubbleCapacity.getProgressDrawable(), ContextCompat.getColor(mContext, R.color.uiGreen));
+                //DrawableCompat.setTint(holder.bubbleCapacity.getProgressDrawable(), ContextCompat.getColor(mContext, R.color.uiGreen));
                 break;
             case 3:
                 holder.riskIcon.setBackgroundResource(R.drawable.circle_yellow);
@@ -84,7 +84,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
             super(view);
             this.nameText = view.findViewById(R.id.user_row_name_text);
             this.riskIcon = view.findViewById(R.id.user_row_risk_icon);
-            this.bubbleCapacity = view.findViewById(R.id.user_row_capacity_bar);
+            //this.bubbleCapacity = view.findViewById(R.id.user_row_capacity_bar);
         }
     }
 }
