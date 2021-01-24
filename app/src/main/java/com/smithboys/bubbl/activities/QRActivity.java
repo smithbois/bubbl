@@ -16,6 +16,7 @@ import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.google.zxing.Result;
 import com.smithboys.bubbl.MainActivity;
+import com.smithboys.bubbl.activities.DashboardActivity;
 import com.smithboys.bubbl.R;
 
 import org.json.JSONException;
@@ -53,7 +54,7 @@ public class QRActivity extends AppCompatActivity {
 
                             System.out.println(month + "/" + day + "/" + year + " " + site);
                             Toast.makeText(QRActivity.this, "Test Verified", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(QRActivity.this, MainActivity.class));
+                            startActivity(new Intent(QRActivity.this, DashboardActivity.class));
 
                             qrVerified = true;
                         } catch (JSONException je) {
