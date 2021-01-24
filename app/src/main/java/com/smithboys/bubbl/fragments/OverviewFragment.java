@@ -32,6 +32,7 @@ public class OverviewFragment extends Fragment {
     private RecyclerView recyclerView;
     private OverviewRecyclerAdapter adapter;
 
+    private Button bubbleButton;
 
     @Nullable
     @Override
@@ -51,7 +52,16 @@ public class OverviewFragment extends Fragment {
         adapter = new OverviewRecyclerAdapter(context, bubbleList);
         recyclerView.setAdapter(adapter);
 
+        bubbleButton = root.findViewById(R.id.bubbleButton);
 
+        Intent intent = new Intent(getActivity(), BubbleActivity.class);
+        bubbleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GlobalBubbles.setLastBubbleClicked(0);
+                startActivity(intent);
+            }
+        });
 
         return root;
     }
