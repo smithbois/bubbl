@@ -20,7 +20,17 @@ public class RiskAlgo {
             for(int uid1 : b1.getUsers()) {
                 if (uid1 != CurrentUser.currentUser.getId()) {
                     User u1 = GlobalUsers.queryByID(uid1);
-                    u1.setRiskLevel((int) Math.round(risk * freqModifier1 * 4) + 1);
+                    if (!u1.getVaccinated()) {
+                        int rl1 = (int) Math.round(risk * freqModifier1 * 4) + 1;
+                        if (rl1 > 1) {
+                            u1.setRiskLevel(rl1);
+                        } else {
+                            u1.setRiskLevel(2);
+                        }
+                    } else {
+                        u1.setRiskLevel(1);
+                    }
+
                     System.out.println("Set " + u1.getFirstName() + " to " + u1.getRiskLevel());
                     double risk1 = (u1.getRiskLevel() - 1) / 4.0;
                     for(int id2 : u1.getBubbles()) {
@@ -29,7 +39,16 @@ public class RiskAlgo {
                             double freqModifier2 = u1.getBubbleFrequency(id1) / 3.0;
                             for(int uid2 : b2.getUsers()) {
                                 User u2 = GlobalUsers.queryByID(uid2);
-                                u2.setRiskLevel((int) Math.round(risk1 * freqModifier2 * 4) + 1);
+                                if (!u2.getVaccinated()) {
+                                    int rl2 = (int) Math.round(risk1 * freqModifier2 * 4) + 1;
+                                    if (rl2 > 1) {
+                                        u2.setRiskLevel(rl2);
+                                    } else {
+                                        u2.setRiskLevel(2);
+                                    }
+                                } else {
+                                    u1.setRiskLevel(1);
+                                }
                             }
                         }
                     }
@@ -50,10 +69,10 @@ public class RiskAlgo {
             int totalRisk = 0;
             for (int id : bubble.getUsers()) {
                 User user = GlobalUsers.queryByID(id);
-                totalRisk = totalRisk + user.getRiskLevel() - 1;
+                totalRisk = totalRisk + user.getRiskLevel();
             }
             int averageRisk = (int) Math.round((double) totalRisk / userCount);
-            bubble.setRiskLevel(averageRisk + 1);
+            bubble.setRiskLevel(averageRisk);
         }
     }
 

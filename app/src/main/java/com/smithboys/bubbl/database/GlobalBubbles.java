@@ -1,6 +1,7 @@
 package com.smithboys.bubbl.database;
 
 import com.smithboys.bubbl.models.Bubble;
+import com.smithboys.bubbl.utils.RiskAlgo;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +24,7 @@ public class GlobalBubbles {
         GlobalUsers.queryByID(4).joinBubble(0);
         GlobalUsers.queryByID(5).joinBubble(0);
         //queryByID(0).setRiskLevel(4);
+        RiskAlgo.updateBubbleRisks();
     }
 
     public static Bubble queryByID(Integer id) {
