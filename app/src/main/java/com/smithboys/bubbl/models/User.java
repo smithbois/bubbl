@@ -46,7 +46,7 @@ public class User {
         this.dateInfected = null;
         this.dateVaccinated = null;
 
-        this.riskLevel = 1;
+        this.riskLevel = 2;
 
         GlobalUsers.addUser(this);
     }
