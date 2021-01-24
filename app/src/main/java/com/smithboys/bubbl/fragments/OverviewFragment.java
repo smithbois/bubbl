@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.smithboys.bubbl.R;
 import com.smithboys.bubbl.activities.BubbleActivity;
+import com.smithboys.bubbl.adapters.OnBubbleClickListener;
 import com.smithboys.bubbl.adapters.OverviewRecyclerAdapter;
 import com.smithboys.bubbl.database.CurrentUser;
 import com.smithboys.bubbl.database.GlobalBubbles;
@@ -52,14 +53,11 @@ public class OverviewFragment extends Fragment {
         adapter = new OverviewRecyclerAdapter(context, bubbleList);
         recyclerView.setAdapter(adapter);
 
-        bubbleButton = root.findViewById(R.id.bubbleButton);
-
-        Intent intent = new Intent(getActivity(), BubbleActivity.class);
-        bubbleButton.setOnClickListener(new View.OnClickListener() {
+        adapter.setOnBubbleClickListener(new OnBubbleClickListener() {
             @Override
-            public void onClick(View view) {
-                GlobalBubbles.setLastBubbleClicked(0);
-                startActivity(intent);
+            public void onBubbleClick(Bubble bubble) {
+                GlobalBubbles.setLastBubbleClicked(bubble.getId());
+                startActivity(new Intent(getActivity(), BubbleActivity.class));
             }
         });
 

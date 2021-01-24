@@ -21,6 +21,7 @@ import java.util.List;
 public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.CustomViewHolder>{
     private List<User> UserList;
     private Context mContext;
+    private OnUserClickListener onUserClickListener;
 
     public UserRecyclerViewAdapter(Context context, List<User> UserList) {
         this.UserList = UserList;
@@ -66,7 +67,13 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
                 break;
         }
 
-
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onUserClickListener.onUserClick(user);
+            }
+        };
+        holder.itemView.setOnClickListener(listener);
     }
 
 
@@ -86,5 +93,13 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
             this.riskIcon = view.findViewById(R.id.user_row_risk_icon);
             this.bubbleCapacity = view.findViewById(R.id.user_row_capacity_bar);
         }
+    }
+
+    public OnUserClickListener getOnUserClickListener() {
+        return onUserClickListener;
+    }
+
+    public void setOnUserClickListener(OnUserClickListener onUserClickListener) {
+        this.onUserClickListener = onUserClickListener;
     }
 }

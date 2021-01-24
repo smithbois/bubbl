@@ -1,6 +1,7 @@
 package com.smithboys.bubbl.activities;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.BlendMode;
 import android.graphics.BlendModeColorFilter;
 import android.os.Build;

@@ -12,6 +12,8 @@ public class GlobalUsers {
     private static Map<Integer, User> globalUsers = new HashMap<>(); // All users in database, organized as (id, user)
     private static Integer userCount; // Number of users in database
 
+    private static int lastUserClicked; // id of last user clicked
+
     // Dummy data
     public static void initializeUsers() {
         userCount = 0;
@@ -53,5 +55,12 @@ public class GlobalUsers {
 
     public static Integer getUserCount() {
         return userCount;
+    }
+
+    public static void setLastUserClicked(int id) {
+        lastUserClicked = id;
+    }
+    public static int getLastUserClicked() {
+        return lastUserClicked;
     }
 }

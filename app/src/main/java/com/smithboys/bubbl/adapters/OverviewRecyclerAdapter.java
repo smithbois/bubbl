@@ -23,6 +23,7 @@ public class OverviewRecyclerAdapter extends RecyclerView.Adapter<OverviewRecycl
 
     private List<Bubble> bubbleList;
     private Context mContext;
+    private OnBubbleClickListener onBubbleClickListener;
 
     public OverviewRecyclerAdapter(Context context, List<Bubble> bubbleList) {
         this.bubbleList = bubbleList;
@@ -68,7 +69,13 @@ public class OverviewRecyclerAdapter extends RecyclerView.Adapter<OverviewRecycl
                 break;
         }
 
-
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBubbleClickListener.onBubbleClick(bubble);
+            }
+        };
+        holder.itemView.setOnClickListener(listener);
     }
 
 
@@ -88,5 +95,13 @@ public class OverviewRecyclerAdapter extends RecyclerView.Adapter<OverviewRecycl
             this.riskIcon = view.findViewById(R.id.bubble_row_risk_icon);
             this.bubbleCapacity = view.findViewById(R.id.bubble_row_capacity_bar);
         }
+    }
+
+    public OnBubbleClickListener getOnBubbleClickListener() {
+        return onBubbleClickListener;
+    }
+
+    public void setOnBubbleClickListener(OnBubbleClickListener onBubbleClickListener) {
+        this.onBubbleClickListener = onBubbleClickListener;
     }
 }
