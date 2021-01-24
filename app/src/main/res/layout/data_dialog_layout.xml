@@ -1,72 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#ECECEC">
 
     <TextView
+        android:id="@+id/dialog_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="16dp"
+        android:text="Report Info"
+        android:textColor="@color/primaryText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/dialog_header"
-        android:text="Report Info"/>
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
+        android:id="@+id/dialog_radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialog_header"
-        android:id="@+id/dialog_radio_group">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/dialog_radio_test"
-            android:text="Got Tested"/>
-
-        <RadioButton
-            android:id="@+id/dialog_radio_diagnosis"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Covid Diagnosis" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/dialog_radio_vaccine"
-            android:text="Got Vaccine"/>
+        app:layout_constraintTop_toBottomOf="@id/dialog_header">
 
     </RadioGroup>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Verify (Optional):"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialog_radio_group"
-        android:id="@+id/dialog_verify_text"/>
-
-    <Button
-        android:id="@+id/scanqr"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_baseline_camera_alt_24"
-        android:text="Scan Code"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialog_verify_text" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_radio_vaccine">
+
+        <Button
+            android:id="@+id/scanqr"
+            android:layout_width="48dp"
+            android:layout_height="44dp"
+            android:background="@drawable/ic_baseline_camera_alt_24" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan QR Code"
+            android:textColor="@android:color/black"
+            android:textStyle="italic" />
+
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/dialog_done_button"
+        android:layout_width="70dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:text="Done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <RadioButton
+        android:id="@+id/dialog_radio_vaccine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Done"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Got Vaccine"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_radio_group"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scanqr" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_radio_diagnosis" />
+
+    <RadioButton
+        android:id="@+id/dialog_radio_diagnosis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Covid Diagnosis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_radio_test" />
+
+    <RadioButton
+        android:id="@+id/dialog_radio_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Got Tested"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_header" />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_done_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

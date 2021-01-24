@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="400dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="5dp"
     cardview:cardCornerRadius="2dp"
@@ -51,8 +51,10 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
             android:elevation="10dp"
             android:max="8"
+            android:paddingRight="25dp"
             android:progress="5"
             android:progressTint="@color/uiRed"
             android:scaleY="2"
@@ -60,10 +62,7 @@
             android:shadowRadius="10.0"
             cardview:layout_constraintBottom_toBottomOf="parent"
             cardview:layout_constraintStart_toEndOf="@id/bubble_row_name_text"
-            cardview:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="50dp"
-            android:paddingRight="25dp"/>
-
+            cardview:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
