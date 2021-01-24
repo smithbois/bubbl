@@ -14,39 +14,60 @@
         android:id="@+id/BbNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="25dp"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/BbCreatorText"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <TextView
         android:id="@+id/BbCreatorText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="177dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="177dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/bbCreatorText"
+        app:layout_constraintStart_toEndOf="@+id/bbCreatorText"
+        app:layout_constraintTop_toBottomOf="@+id/BbNameText" />
+
+    <TextView
+        android:id="@+id/bbCreatorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:text="Circle created by"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
+        app:layout_constraintTop_toBottomOf="@+id/BbNameText" />
 
     <TextView
         android:id="@+id/BbRiskText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginStart="5dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/BbCreatorText"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
+        app:layout_constraintBottom_toBottomOf="@+id/bbRiskText"
+        app:layout_constraintStart_toEndOf="@+id/bbRiskText"
+        app:layout_constraintTop_toTopOf="@+id/bbRiskText" />
+
+    <TextView
+        android:id="@+id/bbRiskText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:text="Risk Level:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BbCreatorText" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Bb_recycler"
         android:layout_width="match_parent"
         android:layout_height="1000dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/BbCreatorText" />
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/BbRiskText"
+        tools:layout_editor_absoluteX="8dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
