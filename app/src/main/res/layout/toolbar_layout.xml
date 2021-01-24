@@ -30,7 +30,7 @@
             android:textSize="23sp" />
 
         <ImageButton
-            android:id="@+id/cart_button"
+            android:id="@+id/add_data_button"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginEnd="16dp"
