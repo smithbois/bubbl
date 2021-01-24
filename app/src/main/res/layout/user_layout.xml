@@ -276,12 +276,12 @@
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="161dp"
             android:layout_marginBottom="30dp"
             android:backgroundTint="@color/colorPrimary"
-            android:text="Notify"
+            android:text="Remind to Get tested"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
 

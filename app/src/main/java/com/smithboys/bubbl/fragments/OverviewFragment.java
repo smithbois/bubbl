@@ -1,5 +1,6 @@
 package com.smithboys.bubbl.fragments;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,13 +16,18 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.smithboys.bubbl.R;
 import com.smithboys.bubbl.activities.BubbleActivity;
 import com.smithboys.bubbl.adapters.OnBubbleClickListener;
 import com.smithboys.bubbl.adapters.OverviewRecyclerAdapter;
 import com.smithboys.bubbl.database.CurrentUser;
 import com.smithboys.bubbl.database.GlobalBubbles;
+import com.smithboys.bubbl.dialogs.AddDataDialog;
+import com.smithboys.bubbl.dialogs.BubbleDialog;
 import com.smithboys.bubbl.models.Bubble;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +40,7 @@ public class OverviewFragment extends Fragment {
     private OverviewRecyclerAdapter adapter;
 
     private Button bubbleButton;
+    private FloatingActionButton floatingActionButton;
 
     @Nullable
     @Override
@@ -58,6 +65,22 @@ public class OverviewFragment extends Fragment {
             public void onBubbleClick(Bubble bubble) {
                 GlobalBubbles.setLastBubbleClicked(bubble.getId());
                 startActivity(new Intent(getActivity(), BubbleActivity.class));
+            }
+        });
+
+        floatingActionButton = root.findViewById(R.id.floatingActionButton);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = null;
+                try {
+                    dialog = BubbleDialog.onCreateDialog(getContext());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                dialog.getWindow().setLayout(10, 500);
+                dialog.show();
             }
         });
 
